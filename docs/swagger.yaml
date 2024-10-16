@@ -1,0 +1,57 @@
+basePath: /api
+definitions:
+  main.DateResponse:
+    properties:
+      unix:
+        type: integer
+      utc:
+        type: string
+    type: object
+  main.ErrorResponse:
+    properties:
+      error:
+        type: string
+    type: object
+externalDocs:
+  description: OpenAPI
+  url: https://swagger.io/resources/open-api/
+host: localhost:1323
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server for datetime-service.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /{date}:
+    get:
+      consumes:
+        - application/json
+      description: Get a UTC date or timestamp from a given date
+      parameters:
+        - description: string
+          in: path
+          name: date
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/main.DateResponse"
+        "400":
+          description: Bad Request
+          schema:
+            $ref: "#/definitions/main.ErrorResponse"
+      summary: Show a utc date and epoch timestamp
+      tags:
+        - datetime
+swagger: "2.0"
