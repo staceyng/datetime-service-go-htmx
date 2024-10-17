@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <h1 style=>Timestamp Microservice</h1>
+    <p>
+        Test service api - api/date=??<br>
+        Example inputs: 
+        <ul>
+            <li>2024-11-14 (date input in the form of YYYY-MM-DD)</li>
+            <li>1729168187000 (Unix timestamp in milliseconds)</li>
+        </ul>
+    </p>
+    <hr />
+
+    <div>
+        <h2 style=>API</h2>
+        API:  {{index . "route"}}
+
+        <h2>Output</h2>
+            <ul>
+                <li>Unix: {{index . "unix"}}</li>
+                <li>UTC: {{index . "utc"}}</li>
+            </ul>
+        </p>
+    </div>
+  </body>
+</html>

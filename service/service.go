@@ -46,6 +46,35 @@ func HandleDateTime(c echo.Context) error {
 	return c.JSON(http.StatusOK, DateResponse{Unix: t.UnixMilli(), UTC: t.UTC().Format(time.RFC1123)})
 }
 
+func RenderDateTime(c echo.Context) error {
+	date := c.QueryParam("date")
+	routePath := c.Path()
+	method := c.Request().Method
+	fullRoute := fmt.Sprintf("%s %s", method, routePath)
+
+	var t time.Time
+	var err error
+
+	if date == "" {
+		t = time.Now()
+	} else {
+		t, err = validateDateTime(date)
+		if err != nil {
+			return c.Render(http.StatusBadRequest, "error.html", map[string]interface{}{
+				"route": fullRoute,
+				"error": "Invalid Date",
+			})
+		}
+	}
+
+	return c.Render(http.StatusOK, "index.html", map[string]interface{}{
+		"route": fullRoute,
+		"unix":  t.UnixMilli(),
+		"utc":   t.UTC().Format(time.RFC1123),
+	})
+
+}
+
 func validateDateTime(d string) (time.Time, error) {
 	dateFormat := "2006-01-02" // YYYY-MM-DD
 	parsedTime, err := time.Parse(dateFormat, d)
