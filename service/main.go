@@ -3,8 +3,6 @@ package main
 import (
 	"net/http"
 
-	"datetime-service-go-htmx/internal/service"
-
 	"github.com/labstack/echo/v4"
 	echoSwagger "github.com/swaggo/echo-swagger"
 	_ "github.com/swaggo/echo-swagger/example/docs"
@@ -35,7 +33,7 @@ func main() {
 	e.GET("/hello-world", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
-	e.GET("/api", service.HandleDateTime)
+	e.GET("/api", HandleDateTime)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }

@@ -1,4 +1,4 @@
-module datetime-service-go-htmx
+module datetime-service-go-htmx/service
 
 go 1.21.4
 
@@ -6,7 +6,6 @@ require (
 	github.com/labstack/echo/v4 v4.12.0
 	github.com/stretchr/testify v1.9.0
 	github.com/swaggo/echo-swagger v1.4.1
-	github.com/swaggo/swag v1.16.3
 )
 
 require (
@@ -26,6 +25,7 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/swaggo/files/v2 v2.0.0 // indirect
+	github.com/swaggo/swag v1.8.12 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
 	golang.org/x/crypto v0.22.0 // indirect

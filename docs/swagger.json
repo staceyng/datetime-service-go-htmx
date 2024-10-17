@@ -1,79 +1,85 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "description": "This is a sample server for datetime-service.",
-    "title": "Swagger Example API",
-    "termsOfService": "http://swagger.io/terms/",
-    "contact": {
-      "name": "API Support",
-      "url": "http://www.swagger.io/support",
-      "email": "support@swagger.io"
-    },
-    "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-    },
-    "version": "1.0"
-  },
-  "host": "localhost:1323",
-  "basePath": "/api",
-  "paths": {
-    "/{date}": {
-      "get": {
-        "description": "Get a UTC date or timestamp from a given date",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "tags": ["datetime"],
-        "summary": "Show a utc date and epoch timestamp",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "string",
-            "name": "date",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/main.DateResponse"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/main.ErrorResponse"
-            }
-          }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "main.DateResponse": {
-      "type": "object",
-      "properties": {
-        "unix": {
-          "type": "integer"
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server for datetime-service.",
+        "title": "Swagger Example API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
         },
-        "utc": {
-          "type": "string"
-        }
-      }
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
     },
-    "main.ErrorResponse": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "type": "string"
+    "host": "localhost:1323",
+    "basePath": "/api",
+    "paths": {
+        "/{date}": {
+            "get": {
+                "description": "Get a UTC date or timestamp from a given date",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "datetime"
+                ],
+                "summary": "Show a utc date and epoch timestamp",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "string",
+                        "name": "date",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.DateResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/main.ErrorResponse"
+                        }
+                    }
+                }
+            }
         }
-      }
+    },
+    "definitions": {
+        "main.DateResponse": {
+            "type": "object",
+            "properties": {
+                "unix": {
+                    "type": "integer"
+                },
+                "utc": {
+                    "type": "string"
+                }
+            }
+        },
+        "main.ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "OpenAPI",
+        "url": "https://swagger.io/resources/open-api/"
     }
-  },
-  "externalDocs": {
-    "description": "OpenAPI",
-    "url": "https://swagger.io/resources/open-api/"
-  }
 }

@@ -32,26 +32,26 @@ paths:
   /{date}:
     get:
       consumes:
-        - application/json
+      - application/json
       description: Get a UTC date or timestamp from a given date
       parameters:
-        - description: string
-          in: path
-          name: date
-          required: true
-          type: string
+      - description: string
+        in: path
+        name: date
+        required: true
+        type: string
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/main.DateResponse"
+            $ref: '#/definitions/main.DateResponse'
         "400":
           description: Bad Request
           schema:
-            $ref: "#/definitions/main.ErrorResponse"
+            $ref: '#/definitions/main.ErrorResponse'
       summary: Show a utc date and epoch timestamp
       tags:
-        - datetime
+      - datetime
 swagger: "2.0"
